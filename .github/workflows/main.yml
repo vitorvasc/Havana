@@ -1,0 +1,40 @@
+name: Deploy server
+
+on: 
+  push:
+    branches: develop
+    
+jobs:
+  build_web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: 17
+          distribution: 'amzn'
+          cache: gradle
+      
+      - name: Build with Gradle
+        run: ./gradlew build
+        
+      - name: Copy Web 
+        uses: appleboy/scp-action@master
+        with: 
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: "./Havana-Web/build/libs/Havana-Web.jar"
+          target: ${{ secrets.PATH 
+          
+      - name: Copy Server 
+        uses: appleboy/scp-action@master
+        with: 
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: "./Havana-Server/build/libs/Havana-Server.jar"
+          target: ${{ secrets.PATH }}
