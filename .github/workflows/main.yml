@@ -26,6 +26,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           source: "./Havana-Web/build/libs/Havana-Web.jar"
           target: ${{ secrets.PATH }}
+          strip_components: 3
           
       - name: Copy Server 
         uses: appleboy/scp-action@master
@@ -36,3 +37,4 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           source: "./Havana-Server/build/libs/*.jar"
           target: ${{ secrets.PATH }}
+          strip_components: 3
