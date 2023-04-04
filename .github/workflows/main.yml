@@ -26,7 +26,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           source: "./tools/www-tpl"
           target: ${{ secrets.TPL_PATH }}
-          strip_components: 3
+          strip_components: 1
 
       - name: Copy Web
         uses: appleboy/scp-action@master
