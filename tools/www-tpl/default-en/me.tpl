@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html" />
-	<title>{{ site.siteName }}: Home </title>
+	<title>{{ site.siteName }}: Test </title>
 
 <script type="text/javascript">
 var andSoItBegins = (new Date()).getTime();
