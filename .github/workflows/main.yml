@@ -1,8 +1,9 @@
 name: Deploy server
 
-on: 
+on:
   push:
-    branches: develop
+    branches:
+      - "develop"
     
 jobs:
   build_web:
